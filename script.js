@@ -13,3 +13,7 @@ function reportWin(rowNum, colNum) {
 function changeColor(rowIndex, colIndex, color) {
 	return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color', color);
 }
+// Report Back to current color of a button
+function returnColor(rowIndex, colIndex) {
+	return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color');
+}
