@@ -9,3 +9,7 @@ function reportWin(rowNum, colNum) {
 	console.log(rowNum);
 	console.log(colNum);
 }
+// Change the color of a button
+function changeColor(rowIndex, colIndex, color) {
+	return table.eq(rowIndex).find('td').eq(colIndex).find('button').css('background-color', color);
+}
