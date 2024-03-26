@@ -34,3 +34,22 @@ function checkBottom(colIndex) {
 		}
 	}
 }
+// Check to see if 4 inputs are the same color
+function colorMatchCheck(one, two, three, four) {
+	return (one === two && one === three && one === four && one !== 'rgb(128, 128, 128)' && one !== undefined);
+}
+
+// Check for Horizontal Wins
+function horizontalWinCheck() {
+	for (var row = 0; row < 6; row++) {
+		for (var col = 0; col < 4; col++) {
+			if (colorMatchCheck(returnColor(row, col), returnColor(row, col + 1), returnColor(row, col + 2), returnColor(row, col + 3))) {
+				console.log('horiz');
+				reportWin(row, col);
+				return true;
+			} else {
+				continue;
+			}
+		}
+	}
+}
