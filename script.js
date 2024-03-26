@@ -34,6 +34,40 @@ function checkBottom(colIndex) {
 		}
 	}
 }
+// Check for Vertical Wins
+function verticalWinCheck() {
+	for (var col = 0; col < 7; col++) {
+		for (var row = 0; row < 3; row++) {
+			if (colorMatchCheck(returnColor(row, col), returnColor(row + 1, col), returnColor(row + 2, col), returnColor(row + 3, col))) {
+				console.log('vertical');
+				reportWin(row, col);
+				return true;
+			} else {
+				continue;
+			}
+		}
+	}
+}
+
+// Check for Diagonal Wins
+function diagonalWinCheck() {
+	for (var col = 0; col < 5; col++) {
+		for (var row = 0; row < 7; row++) {
+			if (colorMatchCheck(returnColor(row, col), returnColor(row + 1, col + 1), returnColor(row + 2, col + 2), returnColor(row + 3, col + 3))) {
+				console.log('diag');
+				reportWin(row, col);
+				return true;
+			} else if (colorMatchCheck(returnColor(row, col), returnColor(row - 1, col + 1), returnColor(row - 2, col + 2), returnColor(row - 3, col + 3))) {
+				console.log('diag');
+				reportWin(row, col);
+				return true;
+			} else {
+				continue;
+			}
+		}
+	}
+}
+
 // Check to see if 4 inputs are the same color
 function colorMatchCheck(one, two, three, four) {
 	return (one === two && one === three && one === four && one !== 'rgb(128, 128, 128)' && one !== undefined);
